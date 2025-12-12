@@ -108,7 +108,7 @@
 </main>
 
 <footer class="border-t border-border-dim py-8 mt-auto bg-bg-main">
-  <div class="max-w-5xl mx-auto px-6 text-xs font-mono text-txt-muted text-center md:text-center">
+  <div class="max-w-5xl mx-auto px-6 text-xs font-mono text-txt-muted text-center">
     <p>&copy; <span id="footer-year"></span> <span id="footer-name"></span></p>
   </div>
 </footer>
@@ -117,14 +117,14 @@
   const portfolioData = {
     nome: "Thiago Dias Jardim",
     perfil: "Software Engineer Student ",
-    // fotoUrl: ,
+    fotoUrl: "image.jpeg",
     localizacao: "Timóteo – MG, Brasil",
 
-    objetivo: "Currently in the 4th semester at the university, I'm searching to " +
-      "improve my skills in new technologies and methodologies, focused on professional growth.<br><br>" +
-      "Moved by a curiosity and a desire to learn, I'm always looking for new challenges and opportunities to grow, and this " +
-      "made me choose the field of software engineering. <br><br>" +
-      "In this portfolio, you can see some of the projects I've worked, and some of the technologies I've used.",
+    objetivo: "Actually, at the 4° period at the university, I'm searching to " +
+            "improve my skills in new technologies and methodologies, focused on professional growth.<br><br>" +
+            "Moved by a curiosity and a desire to learn, I'm always looking for new challenges and opportunities to grow, and this " +
+            "made me choose the field of software engineering. <br><br>" +
+            "In this portfolio, you can see some of the projects I've worked, and some of the technologies I've used.",
 
     habilidades: ["SQL & MySQL", "Java", "JavaScript", "Network Infrastructure", "Object Oriented Programming",
       "HTML & CSS" , "Prompt Engineering"],
@@ -132,16 +132,16 @@
     projetos: [
 
       {
-        titulo: "Edy Fashion Store",
-        descricao: "This is a simple project to a very known store in my hometown, I made the project with HTML and JavaScript.",
-        tags: ["HTML", "JavaScript"],
-        link: "https://github.com/teagozz/edyfashion"
+        titulo: "Portfolio",
+        descricao: "This is my first portfolio, and was developed using HTML, CSS and JavaScript.",
+        tags: ["HTML", "CSS", "JavaScript"],
+        link: "https://github.com/teagozz/Portfolio"
       },
 
       {
         titulo: "University Restaurant Management System",
         descricao: "Development of simple university restaurant management system, on a university " +
-          "OOP project, returning in the console.",
+                "OOP project, returning in the console.",
         tags: ["JAVA", "OOP"],
         link: "https://github.com/teagozz/Sistema-de-Gestao-de-Restaurantes-Universitarios"
       },
@@ -149,7 +149,7 @@
       {
         titulo: "HUB",
         descricao: "Participant of the development team of the public space management system" +
-          " developed to the City Hall of Coronel Fabriciano - MG.",
+                " developed to the City Hall of Coronel Fabriciano - MG.",
         tags: ["Java","POO" , "MySQL", "Spring Boot"],
         link: "https://github.com/mayanpas/Projeto-PI-UNILESTE"
       },
@@ -157,7 +157,7 @@
 
     formacao: [
       { periodo: "Present", titulo: "Prompt Engineering", instituicao: "Udemy", detalhe: "Extract the maximum of the chatbots, " +
-          "like ChatGPT, Gemini and Claude." },
+                "like ChatGPT, Gemini and Claude." },
       { periodo: "2024 - Present", titulo: "Bachelor's Degree in Software Engineering",
         instituicao: "UNILESTE", detalhe: "Focused on back-end and architecture." }
     ],
@@ -184,7 +184,7 @@
     portfolioData.habilidades.forEach(skill => {
       const badge = document.createElement('span');
       badge.className = "px-4 py-2 text-xs border border-border-dim bg-bg-card text-txt-muted hover:text-white " +
-        "hover:border-white transition-all rounded-xl cursor-default shadow-sm";
+              "hover:border-white transition-all rounded-xl cursor-default shadow-sm";
       badge.textContent = skill;
       skillsContainer.appendChild(badge);
     });
@@ -199,7 +199,7 @@
       if(proj.link && proj.link !== '#') card.target = "_blank";
 
       let cardClasses = "group block bg-bg-card border border-border-dim p-8 hover:border-white/40 hover:shadow-xl transition-all" +
-        " duration-300 h-full flex flex-col justify-between rounded-3xl";
+              " duration-300 h-full flex flex-col justify-between rounded-3xl";
 
       if (isOdd && index === totalProjetos - 1) {
         card.classList.add('md:col-span-2');
@@ -252,7 +252,7 @@ border border-border-dim">${tag}</span>`).join('')}
       a.href = link.url;
       if(!link.url.startsWith('mailto')) a.target = "_blank";
       a.className = "text-sm font-medium border border-border-dim bg-bg-card px-8 py-4 hover:bg-white hover:text-bg-main transition-all" +
-        " duration-300 min-w-[140px] rounded-2xl shadow-md";
+              " duration-300 min-w-[140px] rounded-2xl shadow-md";
       a.textContent = link.name;
       contactContainer.appendChild(a);
     });
