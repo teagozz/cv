@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth scroll-pt-24">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diasjthiago</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22
+    height=%22100%22 fill=%22%232f4f4f%22 stroke=%22black%22 stroke-width=%2210%22/><text x=%2250%22 y=%2255%22 dominant-baseline=%22middle%22
+     text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2260%22>T</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        'bg-main': '#121f1f',
+                        'bg-card': '#1c2f2f',
+                        'border-dim': '#000000',
+                        'txt-main': '#ffffff',
+                        'txt-muted': '#ffffff',
+                    }
+                },
+            },
+        };
+    </script>
+
+    <style>
+        body { background-color: #2f4f4f; color: #ffffff; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ffffff; }
+        ::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffffff; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-sans selection:bg-white selection:text-black">
+
+<header class="fixed top-0 w-full z-50 bg-bg-main/80 backdrop-blur-md border-b border-border-dim">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="#" class="text-lg font-bold tracking-tight hover:text-white transition-colors">diasjthiago<span class="text-txt-muted"></span></a>
+        <nav class="hidden md:flex gap-8 text-sm font-medium text-txt-muted">
+            <a href="#about" class="hover:text-white transition-colors">About</a>
+            <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+            <a href="#experience" class="hover:text-white transition-colors">Journey</a>
+            <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main class="flex-grow pt-24 pb-12 px-6">
+    <div class="max-w-5xl mx-auto space-y-24">
+
+        <section id="about" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center fade-in-section">
+            <div class="md:col-span-4 lg:col-span-3 flex flex-col items-center md:items-start">
+                <div id="foto-container" class="w-full flex justify-center md:justify-start"></div>
+                <div class="mt-6 flex flex-col gap-3 font-mono text-xs text-txt-muted pl-2">
+                    <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span><span>Avaliable for work!</span></div>
+                    <div id="location-display"></div>
+                </div>
+            </div>
+            <div class="md:col-span-8 lg:col-span-9 flex flex-col justify-center">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-white leading-tight"><span id="hero-name"></span></h1>
+                <h2 class="text-xl md:text-2xl text-txt-muted mb-8 font-light" id="hero-role"></h2>
+                <div class="prose prose-invert prose-lg text-txt-muted mb-10 leading-relaxed" id="hero-bio"></div>
+                <div>
+                    <h3 class="text-xs font-mono uppercase tracking-widest text-txt-muted mb-4 pl-1">Stacks</h3>
+                    <div class="flex flex-wrap gap-2" id="skills-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-border-dim opacity-50" />
+
+        <section id="projects">
+            <div class="flex items-baseline justify-between mb-12 px-2">
+                <h2 class="text-3xl font-bold text-white tracking-tight">Projects</h2>
+                <span class="text-xs font-mono text-txt-muted hidden sm:inline-block">/ What I did and participated</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-grid">
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="flex items-baseline justify-between mb-12 px-2">
+                <h2 class="text-3xl font-bold text-white tracking-tight">Journey</h2>
+                <span class="text-xs font-mono text-txt-muted hidden sm:inline-block">/My way</span>
+            </div>
+            <div class="space-y-4" id="timeline-list"></div>
+        </section>
+
+        <section id="contact" class="bg-bg-card border border-border-dim p-8 md:p-16 text-center rounded-3xl shadow-xl">
+            <h2 class="text-2xl md:text-4xl font-bold text-white mb-6">Let's talk?</h2>
+            <div class="flex flex-wrap justify-center gap-6" id="contact-links"></div>
+        </section>
+
+    </div>
+</main>
+
+<footer class="border-t border-border-dim py-8 mt-auto bg-bg-main">
+    <div class="max-w-5xl mx-auto px-6 text-xs font-mono text-txt-muted text-center">
+        <p>&copy; <span id="footer-year"></span> <span id="footer-name"></span></p>
+    </div>
+</footer>
+
+<script>
+    const portfolioData = {
+        nome: "Thiago Dias Jardim",
+        perfil: "Software Engineer Student ",
+        fotoUrl: "avatar.png",
+        localizacao: "Timóteo – MG, Brasil",
+
+        objetivo: "I'm currently in my 4th semester at university, and I'm working to improve my skills in new technologies and methodologies, with a strong focus on professional growth <br><br>" +
+            "Driven by curiosity and a desire to learn, I'm always looking for new challenges and opportunities to grow. This motivation led me to choose the field of software engineering. <br><br> " +
+            "In this portfolio, you can see some of the projects I've worked on and the technologies I've used.",
+
+        habilidades: ["SQL & MySQL", "Java", "JavaScript", "Network Infrastructure", "Object Oriented Programming",
+            "HTML & CSS" , "Prompt Engineering"],
+
+        projetos: [
+
+            {
+                titulo: "Edy Fashion Store",
+                descricao: "This is a simple project to a very known store in my hometown, I made the project with HTML, Java and JavaScript.",
+                tags: ["HTML", "JavaScript", "JAVA"],
+                link: "https://github.com/teagozz/EdyFashion"
+            },
+
+            {
+                titulo: "University Restaurant Management System",
+                descricao: "Development of simple university restaurant management system, on a university " +
+                    "OOP project, returning in the console.",
+                tags: ["JAVA", "OOP"],
+                link: "https://github.com/teagozz/Sistema-de-Gestao-de-Restaurantes-Universitarios"
+            },
+
+            {
+                titulo: "HUB",
+                descricao: "Participant of the development team of the public space management system" +
+                    " developed to the City Hall of Coronel Fabriciano - MG.",
+                tags: ["Java","POO" , "MySQL", "Spring Boot"],
+                link: "https://github.com/mayanpas/Projeto-PI-UNILESTE"
+            },
+        ],
+
+        formacao: [
+            { periodo: "Present", titulo: "Prompt Engineering", instituicao: "Udemy", detalhe: "Extract the maximum of the chatbots, " +
+                    "like ChatGPT, Gemini and Claude." },
+            { periodo: "2024 - Present", titulo: "Bachelor's Degree in Software Engineering",
+                instituicao: "UNILESTE", detalhe: "Focused on back-end and architecture." }
+        ],
+
+        contato: {
+            email: "mailto:forbusinessthiago@gmail.com",
+            linkedin: "https://www.linkedin.com/in/thiagodjardim/",
+            github: "https://github.com/teagozz"
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('hero-name').textContent = portfolioData.nome;
+        document.getElementById('hero-role').textContent = portfolioData.perfil;
+        document.getElementById('hero-bio').innerHTML = portfolioData.objetivo;
+        document.getElementById('location-display').textContent = portfolioData.localizacao;
+
+        const fotoContainer = document.getElementById('foto-container');
+        if (portfolioData.fotoUrl) {
+            fotoContainer.innerHTML = `<img src="${portfolioData.fotoUrl}" alt="${portfolioData.nome}" class="w-64 h-64 object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300">`;
+        }
+
+        const skillsContainer = document.getElementById('skills-list');
+        portfolioData.habilidades.forEach(skill => {
+            const badge = document.createElement('span');
+            badge.className = "px-4 py-2 text-xs border border-border-dim bg-bg-card text-txt-muted hover:text-white " +
+                "hover:border-white transition-all rounded-xl cursor-default shadow-sm";
+            badge.textContent = skill;
+            skillsContainer.appendChild(badge);
+        });
+
+        const projectsContainer = document.getElementById('projects-grid');
+        const totalProjetos = portfolioData.projetos.length;
+        const isOdd = totalProjetos % 2 !== 0;
+
+        portfolioData.projetos.forEach((proj, index) => {
+            const card = document.createElement('a');
+            card.href = proj.link || '#';
+            if(proj.link && proj.link !== '#') card.target = "_blank";
+
+            let cardClasses = "group block bg-bg-card border border-border-dim p-8 hover:border-white/40 hover:shadow-xl transition-all" +
+                " duration-300 h-full flex flex-col justify-between rounded-3xl";
+
+            if (isOdd && index === totalProjetos - 1) {
+                card.classList.add('md:col-span-2');
+            }
+
+            card.className = cardClasses;
+
+            card.innerHTML = `
+        <div>
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold text-white group-hover:text-white group-hover:underline decoration-1 underline-offset-4">${proj.titulo}</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-txt-muted group-hover:text-white transition-colors transform group-hover:-translate-y-1
+                group-hover:translate-x-1" ="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </div>
+            <p class="text-txt-muted text-sm leading-relaxed mb-6">${proj.descricao}</p>
+        </div>
+        <div class="flex gap-2 flex-wrap mt-auto">
+            ${proj.tags.map(tag => `<span class="text-[10px] font-mono uppercase text-txt-muted bg-bg-main px-3 py-1 rounded-lg
+border border-border-dim">${tag}</span>`).join('')}
+        </div>
+      `;
+            projectsContainer.appendChild(card);
+        });
+
+        const timelineContainer = document.getElementById('timeline-list');
+        portfolioData.formacao.forEach(item => {
+            const row = document.createElement('div');
+            row.className = "grid grid-cols-1 md:grid-cols-4 gap-4 py-8 border border-border-dim bg-bg-card hover:border-white/30 transition-all px-6 rounded-2xl shadow-sm";
+            row.innerHTML = `
+        <div class="md:col-span-1 text-xs font-mono text-txt-muted uppercase pt-1 tracking-wider">${item.periodo}</div>
+        <div class="md:col-span-3">
+            <h4 class="text-lg font-bold text-white mb-1">${item.titulo}</h4>
+            <div class="text-sm text-txt-muted mb-2 font-medium">${item.instituicao}</div>
+            <p class="text-sm text-txt-muted/80 max-w-xl leading-relaxed">${item.detalhe}</p>
+        </div>
+      `;
+            timelineContainer.appendChild(row);
+        });
+
+        const contactContainer = document.getElementById('contact-links');
+        const links = [
+            { name: "Email", url: portfolioData.contato.email },
+            { name: "LinkedIn", url: portfolioData.contato.linkedin },
+            { name: "GitHub", url: portfolioData.contato.github }
+        ];
+        links.forEach(link => {
+            const a = document.createElement('a');
+            a.href = link.url;
+            if(!link.url.startsWith('mailto')) a.target = "_blank";
+            a.className = "text-sm font-medium border border-border-dim bg-bg-card px-8 py-4 hover:bg-white hover:text-bg-main transition-all" +
+                " duration-300 min-w-[140px] rounded-2xl shadow-md";
+            a.textContent = link.name;
+            contactContainer.appendChild(a);
+        });
+
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+        document.getElementById('footer-name').textContent = "diasjthiago";
+    });
+</script>
+</body>
+</html>
